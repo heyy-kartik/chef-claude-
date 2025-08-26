@@ -11,7 +11,7 @@ const Form = () => {
   ));
 
   function handleRecipe() {
-    setRecipeShown((prevToggle) => !prevToggle);
+    setRecipeShown(true);
   }
 
   function handleClick(event) {
@@ -50,7 +50,7 @@ const Form = () => {
         <button
           type="button"
           onClick={handleClick}
-          className="p-2 gap-5 h-8 align-middle justify-center items-center flex w-[200px] bg-black text-sm text-white rounded-md hover:bg-gray-800"
+          className="p-2 gap-5 h-8 align-middle justify-center items-center flex w-[150px] bg-black text-sm text-white rounded-md hover:bg-gray-800"
         >
           + Add Ingredient
         </button>
@@ -82,17 +82,20 @@ const Form = () => {
         </section>
       )}
       {recipeShown && (
-        <section>
-          <h2>Chef Claude Recommends:</h2>
+        <section className="ml-5 pt-30 ">
+          <h2 className="text-2xl font-serif">Chef Claude Recommends:</h2>
           <article className="suggested-recipe-container" aria-live="polite">
-            <p>
+            <p className="text-lg font-poppins p-2">
               Based on the ingredients you have available, I would recommend
               making a simple and delicious{" "}
-              <strong>Beef Bolognese Pasta</strong>. Here is the recipe:
+              <strong>Beef Bolognese Pasta </strong>. Here is the recipe:
             </p>
-            <h3>Beef Bolognese Pasta</h3>
-            <strong>Ingredients:</strong>
-            <ul>
+            <h3 className="text-xl font-semibold m-2">
+              {" "}
+              Beef Bolognese Pasta ✨
+            </h3>
+            <strong className="text-gray-700">Ingredients:</strong>
+            <ul className="m-4 mb-4 list-disc list-inside">
               <li>1 lb. ground beef</li>
               <li>1 onion, diced</li>
               <li>3 cloves garlic, minced</li>
@@ -107,8 +110,8 @@ const Form = () => {
               </li>
             </ul>
             <strong>Instructions:</strong>
-            <ol>
-              <li>
+            <ol className="space-y-2">
+              <li className="mb-2">
                 Bring a large pot of salted water to a boil for the pasta.
               </li>
               <li>
