@@ -1,9 +1,9 @@
 import React from "react";
 
 const Ingredients = (props) => {
-  const ingredientsListItems = props.ingredient.map((item) => {
+  const ingredientsListItems = (props.ingredients || []).map((item, index) => {
     return (
-      <li key={item} className="text-lg font-mono ml-4 pt-2 text-gray-600">
+      <li key={index} className="text-lg font-mono ml-4 pt-2 text-gray-600">
         • {item}
       </li>
     );
@@ -15,7 +15,7 @@ const Ingredients = (props) => {
         <ul className="ingredients-list" aria-live="polite">
           {ingredientsListItems}
         </ul>
-        {ingredientsListItems.length > 3 && (
+        {props.ingredients.length > 3 && (
           <div className="recipe-section flex gap-3 p-5 border border-gray-300 rounded-md mt-5 bg-orange-50">
             <div className="text-lg font-dm-sans">
               <h3>Ready for a recipe?</h3>

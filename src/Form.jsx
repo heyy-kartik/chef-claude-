@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import Ingredients from "./Ingredients";
+import { getRecipeFromMistral } from "./ai";
 
 const Form = () => {
   const [ingredient, setIngredients] = useState([]);
   const [recipeShown, setRecipeShown] = useState(false);
 
-  function getRecipe() {
-    setRecipeShown(true);
+  async function getRecipe() {
+    const recipeMarkdown = await getRecipeFromMistral(ingredient);
+    setRecipeShown(recipeMarkdown);
   }
 
   function handleClick(event) {
@@ -51,8 +53,10 @@ const Form = () => {
           + Add Ingredient
         </button>
       </form>
-      {ingredient.length > 0 && <Ingredients />}
-      {recipeShown && <ClaudeRecipe />}
+      {ingredient.length > 0 && (
+        <Ingredients ingredients={ingredient} getRecipe={getRecipe} />
+      )}
+      {recipeShown && <ClaudeRecipe recipe={recipeShown} />}
     </div>
   );
 };
