@@ -5,7 +5,7 @@ const ClaudeRecipe = (props) => {
   return (
     <>
       <div>
-        <h2 className="text-lg font-bold mb-2 font-serif ">
+        <h2 className="text-2xl font-medium mb-2 font-serif ">
           {" "}
           Chef Claude Recommends :{" "}
         </h2>
