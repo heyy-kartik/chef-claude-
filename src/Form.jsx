@@ -34,7 +34,7 @@ const Form = () => {
   }
 
   return (
-    <div className="bg-[#fffcf2] p-4 shadow-md h-[420px]">
+    <div className="bg-[#fffcf2] p-4 shadow-md h-auto rounded-md">
       <form
         className="flex flex-row items-center gap-5 p-5"
         onSubmit={handleSubmit}
